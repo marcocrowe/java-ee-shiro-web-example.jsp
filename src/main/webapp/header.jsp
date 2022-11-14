@@ -2,6 +2,8 @@
 		 pageEncoding="UTF-8" %>
 <%@ taglib prefix="c"
 		   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro"
+		   uri="http://shiro.apache.org/tags" %>
 <div class="container">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
@@ -25,22 +27,26 @@
 							<span class="visually-hidden">(current)</span>
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link"
-						   href="<c:url value="/debug-sign-in" />">Debug Sign-in</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link"
-						   href="<c:url value="/sign-in" />">Sign-in</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link"
-						   href="<c:url value="/user/account-details" />">My Account</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link"
-						   href="<c:url value="/sign-out" />">Sign Out</a>
-					</li>
+					<shiro:guest>
+						<li class="nav-item">
+							<a class="nav-link"
+							   href="<c:url value="/debug-sign-in" />">Debug Sign-in</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link"
+							   href="<c:url value="/sign-in" />">Sign-in</a>
+						</li>
+					</shiro:guest>
+					<shiro:authenticated>
+						<li class="nav-item">
+							<a class="nav-link"
+							   href="<c:url value="/sign-out" />">Sign-out</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link"
+							   href="<c:url value="/user/account-details" />">My Account</a>
+						</li>
+					</shiro:authenticated>
 				</ul>
 			</div>
 		</div>
