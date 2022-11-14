@@ -1,0 +1,11 @@
+{
+	"recommendations": [
+		"eamodio.gitlens",
+		"mwpb.java-prettier-formatter",
+		"pthorsson.vscode-jsp",
+		"redhat.vscode-community-server-connector",
+		"davidanson.vscode-markdownlint",
+		"2gua.rainbow-brackets",
+		"sonarsource.sonarlint-vscode"
+	]
+}
