@@ -26,6 +26,23 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+		<!-- Required for web.xml: <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class> -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-servlet-plugin</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+		<!-- Shiro requires a logger -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
     </dependencies>
 
     <build>
