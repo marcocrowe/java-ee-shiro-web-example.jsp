@@ -66,7 +66,7 @@
 							   value="homer.simpson" />
 					<input type="hidden"
 						   name="password"
-						   value="password" />
+						   value="1234" />
 					<button type="submit" class="btn btn-danger">Homer Simpson Login</button>
 				</form>
 			</div>
@@ -77,7 +77,7 @@
 						   value="bart.simpson" />
 					<input type="hidden"
 						   name="password"
-						   value="password" />
+						   value="pass" />
 					<button type="submit" class="btn btn-danger">Bart Simpson Login</button>
 				</form>
 			</div>
@@ -88,7 +88,7 @@
 						   value="lisa.simpson" />
 					<input type="hidden"
 						   name="password"
-						   value="password" />
+						   value="abc" />
 					<button type="submit" class="btn btn-danger">Lisa Simpson Login</button>
 				</form>
 			</div>
