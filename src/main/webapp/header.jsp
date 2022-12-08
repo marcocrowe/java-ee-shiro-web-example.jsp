@@ -27,18 +27,14 @@
 							<span class="visually-hidden">(current)</span>
 						</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link"
+						   href="<c:url value="/test-security" />">Test Security</a>
+					</li>
 					<shiro:guest>
 						<li class="nav-item">
 							<a class="nav-link"
-							   href="<c:url value="/debug-sign-in" />">Debug Sign-in</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link"
 							   href="<c:url value="/sign-in" />">Sign-in</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link"
-							   href="<c:url value="/user/account-details" />">Test Security</a>
 						</li>
 					</shiro:guest>
 					<shiro:authenticated>

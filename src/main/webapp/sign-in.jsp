@@ -2,8 +2,6 @@
 		 pageEncoding="UTF-8" %>
 <%@ taglib prefix="c"
 		   uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fm"
-		   uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +18,7 @@
 					   id="username"
 					   name="username"
 					   class="form-control"
-					   <c:if test="${not empty username}">value="${fn.escapeXml(username)}"</c:if>
+					   <c:if test="${not empty username}">value="<c:out value="${username}" />"</c:if>
 					   required="required" />
 				<label class="form-label"
 					   for="username">Username</label>
@@ -55,9 +53,46 @@
 					class="btn btn-primary btn-block mb-4">Sign in
 			</button>
 			<c:if test="${not empty errorMessage}">
-				<div class="text-danger mb-4">${errorMessage}</div>
+				<div class="text-danger mb-4"><c:out value="${errorMessage}" /></div>
 			</c:if>
 		</form>
+
+
+		<div class="row row-cols-auto">
+			<div class="col">
+				<form method="post" id="homer-simpson-debug-login">
+						<input type="hidden"
+							   name="username"
+							   value="homer.simpson" />
+					<input type="hidden"
+						   name="password"
+						   value="password" />
+					<button type="submit" class="btn btn-danger">Homer Simpson Login</button>
+				</form>
+			</div>
+			<div class="col">
+				<form method="post" id="bart.simpson-debug-login">
+					<input type="hidden"
+						   name="username"
+						   value="bart.simpson" />
+					<input type="hidden"
+						   name="password"
+						   value="password" />
+					<button type="submit" class="btn btn-danger">Bart Simpson Login</button>
+				</form>
+			</div>
+			<div class="col">
+				<form method="post" id="lisa.simpson-debug-login">
+					<input type="hidden"
+						   name="username"
+						   value="lisa.simpson" />
+					<input type="hidden"
+						   name="password"
+						   value="password" />
+					<button type="submit" class="btn btn-danger">Lisa Simpson Login</button>
+				</form>
+			</div>
+		</div>
 	</main>
 </div>
 </body>
