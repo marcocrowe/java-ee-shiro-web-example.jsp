@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet(name = "HomeServlet", value = WebPaths.HOME)
+@WebServlet(value = WebPaths.HOME)
 public class HomeServlet extends HttpServlet
 {
 	@Override

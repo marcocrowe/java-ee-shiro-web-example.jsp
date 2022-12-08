@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
-@WebServlet(name = "SignOutServlet", value = WebPaths.SIGN_OUT)
+@WebServlet(WebPaths.SIGN_OUT)
 public class SignOutServlet extends HttpServlet
 {
 	@Override

@@ -9,7 +9,7 @@ import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 
-@WebServlet(name = "SignInServlet", value = WebPaths.SIGN_IN)
+@WebServlet(WebPaths.SIGN_IN)
 public class SignInServlet extends HttpServlet
 {
 	@Override

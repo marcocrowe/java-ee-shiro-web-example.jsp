@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet(name = "UserAccountDetailsServlet", value = WebPaths.USER_ACCOUNT_DETAILS)
+@WebServlet(WebPaths.USER_ACCOUNT_DETAILS)
 public class UserAccountDetailsServlet extends HttpServlet
 {
 	@Override
