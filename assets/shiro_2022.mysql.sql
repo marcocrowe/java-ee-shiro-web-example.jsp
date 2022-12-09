@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `shiro_2022` /*!40100 DEFAULT CHARACTER SET utf8m
 USE `shiro_2022`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
--- Host: localhost    Database: shiro
+-- Host: localhost    Database: shiro_2022
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -51,13 +51,16 @@ DROP TABLE IF EXISTS `user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `Id` int NOT NULL AUTO_INCREMENT,
-  `ClearPassword` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `HashedPassword` varchar(255) COLLATE utf8mb3_turkish_ci NOT NULL,
-  `Name` varchar(45) COLLATE utf8mb3_turkish_ci NOT NULL,
-  `Salt` varchar(255) COLLATE utf8mb3_turkish_ci NOT NULL,
+  `Email` varchar(45) COLLATE utf8mb3_turkish_ci NOT NULL,
+  `HashedPassword` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
+  `Name` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
+  `PlainTextPassword` varchar(255) COLLATE utf8mb3_turkish_ci NOT NULL,
+  `Salt` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
+  `SaltHashedPassword` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
   `Username` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
   PRIMARY KEY (`Id`),
-  UNIQUE KEY `username_UNIQUE` (`Username`)
+  UNIQUE KEY `username_UNIQUE` (`Username`),
+  UNIQUE KEY `Email_UNIQUE` (`Email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_turkish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -67,7 +70,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'1234','','Homer','','Homer'),(2,'pass','','Bart','','Bart'),(3,'abc','','Lisa','','Lisa');
+INSERT INTO `user` VALUES (1,'homer@simpsons.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','Homer Simpson','1234','1crq50fq2x0ntr6w7vn83102ml5tc0zbmvrcaq10uqenfdeqk','c5160de821487c450582bdd17e0da30e2b6c9f9aa3da81955a3496ec43ea7d4a','homer.simpson'),(2,'bart@simpsons.com','d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1','Bart Simpson','pass','14z5brbqouf1914r08639vz85tpjs1hc5cx4c0zp2c1ya33ym','ba67457f9f5fe23d46d7254d56676cf24324945686bb91db9fbe9ae60d29ce23','bart.simpson'),(3,'lisa@simpsons.com','ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad','Lisa Simpson','abc','32x87y80wbdwlhpob3if9mw5fzs552ciq8xn3baeeev1twmhy','99f2cceb45992363c76f5fd3425e3ad240c668a497de0744803a13646bed2339','lisa.simpson');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +99,7 @@ INSERT INTO `userrole` VALUES (1,1),(1,3),(2,2),(2,3);
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'shiro'
+-- Dumping routines for database 'shiro_2022'
 --
 /*!50003 DROP PROCEDURE IF EXISTS `GetUserRoles` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -135,8 +138,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUserRolesByUsername`(IN _username VARCHAR(45))
 BEGIN
-SELECT `user`.`Username`,
-	   `role`.`Name` AS `Role`
+SELECT `role`.`Name` AS `Role`
 FROM `user`
 	INNER JOIN `userrole`
     ON `userrole`.`UserId` = `user`.`Id`
@@ -159,4 +161,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-08 19:02:56
+-- Dump completed on 2022-12-09 10:34:57
