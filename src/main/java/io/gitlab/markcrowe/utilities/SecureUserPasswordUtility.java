@@ -21,7 +21,7 @@ public final class SecureUserPasswordUtility
 	{
 		for(User user : userRepository.getAllUsers())
 		{
-			String hash = HashUtility.hashToHex(user.getPlainTextPassword());
+			String hash = hash(user.getPlainTextPassword());
 
 			user.setHashedPassword(hash);
 
@@ -34,9 +34,9 @@ public final class SecureUserPasswordUtility
 		for(User user : userRepository.getAllUsers())
 		{
 			String salt = HashUtility.generateSalt();
-			String hash = HashUtility.hashToHex(user.getPlainTextPassword(), salt);
+			String saltHash = saltHash(user.getPlainTextPassword(), salt);
 
-			user.setSaltHashedPassword(hash);
+			user.setSaltHashedPassword(saltHash);
 			user.setSalt(salt);
 
 			userRepository.updateUser(user);
@@ -47,20 +47,29 @@ public final class SecureUserPasswordUtility
 	{
 		for(User user : userRepository.getAllUsers())
 		{
-			String hash = HashUtility.hashToHex(user.getPlainTextPassword());
+			String hash = hash(user.getPlainTextPassword());
 			String salt = user.getSalt();
-			String saltedHash = HashUtility.hashToHex(user.getPlainTextPassword(), salt);
+			String saltHash = saltHash(user.getPlainTextPassword(), salt);
 
 			if(!user.getHashedPassword().equals(hash))
 				System.err.println(user.getUsername() + " hash is not valid");
 			else
 				System.out.println(user.getUsername() + " hash is valid");
 
-			if(!user.getSaltHashedPassword().equals(saltedHash))
+			if(!user.getSaltHashedPassword().equals(saltHash))
 				System.err.println(user.getUsername() + " salted hash is not valid");
 			else
 				System.out.println(user.getUsername() + " salted hash is valid");
 		}
+	}
+
+	public static String hash(String plainText)
+	{
+		return HashUtility.hashToHex(plainText);
+	}
+	public static String saltHash(String plainText, String salt)
+	{
+		return HashUtility.hashToHex(plainText, salt);
 	}
 
 	/**

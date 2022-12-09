@@ -40,7 +40,43 @@ public final class HashUtility
 	 * Generate a hash in Hex format
 	 *
 	 * @param plainText The plain-text to hash
-	 * @return A hash of the plainText in Hex format
+	 * @return A hash of the plainText in Base64 encoding
+	 */
+	public static String hashToBase64(String plainText)
+	{
+		return new Sha256Hash(plainText).toBase64();
+	}
+
+	/**
+	 * Generate a hash using a salt in Hex format
+	 *
+	 * @param plainText The plain-text to hash
+	 * @param salt The salt to hash plain-text with.
+	 * @return A salted hash of the plain-text in Base64 encoding.
+	 */
+	public static String hashToBase64(String plainText, String salt)
+	{
+		return hashToBase64(plainText, salt, HASH_ITERATIONS);
+	}
+
+	/**
+	 * Generate a hash using a salt in Hex format
+	 *
+	 * @param plainText The plain-text to hash
+	 * @param salt The salt to hash plain-text with.
+	 * @param hashIterations The number of hash iterations.
+	 * @return A salted hash of the plain-text in Base64 encoding.
+	 */
+	public static String hashToBase64(String plainText, String salt, int hashIterations)
+	{
+		return new Sha256Hash(plainText, new SimpleByteSource(salt).getBytes(), hashIterations).toBase64();
+	}
+
+	/**
+	 * Generate a hash in Hex format
+	 *
+	 * @param plainText The plain-text to hash
+	 * @return A hash of the plainText in Hex encoding
 	 */
 	public static String hashToHex(String plainText)
 	{
