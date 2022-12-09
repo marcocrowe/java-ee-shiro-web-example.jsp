@@ -36,6 +36,7 @@ public class SignInServlet extends HttpServlet
 		String password = request.getParameter("password");
 		boolean rememberMe = request.getParameter("remember-me") != null;
 		String username = request.getParameter("username");
+		request.setAttribute("username", username);
 		return new UsernamePasswordToken(username, password, rememberMe);
 	}
 	static void signInUser(HttpServletRequest request, HttpServletResponse response, HttpServlet servlet, UsernamePasswordToken usernamePasswordToken) throws IOException, ServletException
