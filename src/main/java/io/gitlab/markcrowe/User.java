@@ -17,7 +17,6 @@ public class User implements Serializable
 	@Column(name = "Id")
 	private int id;
 
-
 	@Basic
 	@Column(name = "Email")
 	private String email;
@@ -37,6 +36,10 @@ public class User implements Serializable
 	@Basic
 	@Column(name = "Salt")
 	private String salt;
+
+	@Basic
+	@Column(name = "SaltHashedPassword")
+	private String saltHashedPassword;
 
 	@Basic
 	@Column(name = "Username")
