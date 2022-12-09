@@ -1,11 +1,13 @@
+/*
+ * Copyright (c) 2022 Mark Crowe <https://github.com/markcrowe-com>. All rights reserved.
+ */
 package io.gitlab.markcrowe.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.UnavailableSecurityManagerException;
+import org.apache.shiro.*;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 

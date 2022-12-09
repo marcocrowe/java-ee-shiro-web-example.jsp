@@ -1,10 +1,13 @@
+/*
+ * Copyright (c) 2022 Mark Crowe <https://github.com/markcrowe-com>. All rights reserved.
+ */
 package io.gitlab.markcrowe.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.UsernamePasswordToken;
 
 @WebServlet(WebPaths.DEBUG_SIGN_IN)
 public class DebugSignInServlet extends HttpServlet

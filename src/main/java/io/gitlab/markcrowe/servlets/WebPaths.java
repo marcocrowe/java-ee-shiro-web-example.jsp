@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2022 Mark Crowe <https://github.com/markcrowe-com>. All rights reserved.
+ */
 package io.gitlab.markcrowe.servlets;
 
 public final class WebPaths
