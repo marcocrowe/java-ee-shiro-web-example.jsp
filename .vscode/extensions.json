@@ -6,6 +6,7 @@
 		"redhat.vscode-community-server-connector",
 		"davidanson.vscode-markdownlint",
 		"2gua.rainbow-brackets",
-		"sonarsource.sonarlint-vscode"
+		"sonarsource.sonarlint-vscode",
+		"tomoyukim.vscode-mermaid-editor"
 	]
 }
