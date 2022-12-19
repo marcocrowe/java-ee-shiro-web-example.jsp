@@ -5,6 +5,8 @@ package io.gitlab.markcrowe.utilities;
 
 import io.gitlab.markcrowe.User;
 import io.gitlab.markcrowe.repositories.UserRepository;
+import org.apache.shiro.authc.credential.DefaultPasswordService;
+import org.apache.shiro.crypto.hash.*;
 
 public final class SecureUserPasswordUtility
 {
@@ -21,7 +23,7 @@ public final class SecureUserPasswordUtility
 	{
 		for(User user : userRepository.getAllUsers())
 		{
-			String hash = hash(user.getPlainTextPassword());
+			String hash = hash(user.getPlainTextPassword()).toHex();
 
 			user.setHashedPassword(hash);
 
@@ -45,13 +47,14 @@ public final class SecureUserPasswordUtility
 
 	public static void confirmUserHashAndSaltPasswords(UserRepository userRepository)
 	{
+		DefaultPasswordService passwordService = buildPasswordService();
 		for(User user : userRepository.getAllUsers())
 		{
-			String hash = hash(user.getPlainTextPassword());
+			String hash = hash(user.getPlainTextPassword()).toBase64();
 			String salt = user.getSalt();
 			String saltHash = saltHash(user.getPlainTextPassword(), salt);
 
-			if(!user.getHashedPassword().equals(hash))
+			if(passwordService.passwordsMatch(user.getPlainTextPassword(), user.getHashedPassword())) //!user.getHashedPassword().equals(hash))
 				System.err.println(user.getUsername() + " hash is not valid");
 			else
 				System.out.println(user.getUsername() + " hash is valid");
@@ -63,9 +66,24 @@ public final class SecureUserPasswordUtility
 		}
 	}
 
-	public static String hash(String plainText)
+	public static Hash hash(String plainText)
 	{
-		return HashUtility.hashToHex(plainText);
+		DefaultPasswordService passwordService = buildPasswordService();
+		return passwordService.hashPassword(plainText);
+
+	}
+	public static DefaultPasswordService buildPasswordService()
+	{
+		HashService hashService = buildHashService();
+		DefaultPasswordService passwordService = new DefaultPasswordService();
+		passwordService.setHashService(hashService);
+		return passwordService;
+	}
+	public static HashService buildHashService()
+	{
+		DefaultHashService hashService = new DefaultHashService();
+		hashService.setHashAlgorithmName(Sha256Hash.ALGORITHM_NAME);
+		return hashService;
 	}
 	public static String saltHash(String plainText, String salt)
 	{
