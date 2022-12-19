@@ -3,6 +3,7 @@
  */
 package io.gitlab.markcrowe.servlets;
 
+import io.gitlab.markcrowe.repositories.UserRepository;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ public class SignInServlet extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		addDebugButtons(request);
 		request.getRequestDispatcher(WebPages.SIGN_IN_JSP).forward(request, response);
 	}
 
@@ -79,6 +81,12 @@ public class SignInServlet extends HttpServlet
 			servlet.log("Unavailable Security Manager", unavailableSecurityManagerException);
 			addErrorMessageToRequest(request, "Application Error");
 		}
+		addDebugButtons(request);
 		request.getRequestDispatcher(page).forward(request, response);
+	}
+	private static void addDebugButtons(HttpServletRequest request)
+	{
+		UserRepository userRepository = new UserRepository("default");
+		request.setAttribute("debugUsers", userRepository.getAllUsers());
 	}
 }

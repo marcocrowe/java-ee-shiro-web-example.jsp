@@ -57,42 +57,27 @@
 			</c:if>
 		</form>
 
-
-		<div class="row row-cols-auto">
-			<div class="col">
-				<form method="post" id="homer-simpson-debug-login">
+		<c:if test="${not empty debugUsers}">
+			<jsp:useBean id="debugUsers" scope="request" type="java.util.List<io.gitlab.markcrowe.User>" />
+			<h2>Debugging</h2>
+			<p>These are debug buttons to allow you to login as a user without having to enter a username and password.</p>
+			<p>These buttons are only visible when the application is running in debug mode.</p>
+			<div class="row row-cols-auto">
+				<c:forEach var="user" items="${debugUsers}">
+				<div class="col">
+					<form method="post">
+							<input type="hidden"
+								name="username"
+								value="<c:out value="${user.username}" />" />
 						<input type="hidden"
-							   name="username"
-							   value="homer.simpson" />
-					<input type="hidden"
-						   name="password"
-						   value="1234" />
-					<button type="submit" class="btn btn-danger">Homer Simpson Login</button>
-				</form>
+							name="password"
+							value="<c:out value="${user.plainTextPassword}" />" />
+						<button type="submit" class="btn btn-danger"><c:out value="${user.name}" /> Login</button>
+					</form>
+				</div>
+				</c:forEach>
 			</div>
-			<div class="col">
-				<form method="post" id="bart.simpson-debug-login">
-					<input type="hidden"
-						   name="username"
-						   value="bart.simpson" />
-					<input type="hidden"
-						   name="password"
-						   value="pass" />
-					<button type="submit" class="btn btn-danger">Bart Simpson Login</button>
-				</form>
-			</div>
-			<div class="col">
-				<form method="post" id="lisa.simpson-debug-login">
-					<input type="hidden"
-						   name="username"
-						   value="lisa.simpson" />
-					<input type="hidden"
-						   name="password"
-						   value="abc" />
-					<button type="submit" class="btn btn-danger">Lisa Simpson Login</button>
-				</form>
-			</div>
-		</div>
+		</c:if>
 	</main>
 </div>
 </body>
