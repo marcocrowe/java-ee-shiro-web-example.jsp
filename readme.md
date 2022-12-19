@@ -1,3 +1,4 @@
+
 # Java EE Shiro Web example (JSP)
 
 A simple example of a Java EE web application using Shiro for authentication and authorization.
@@ -12,7 +13,7 @@ A simple example of a Java EE web application using Shiro for authentication and
 1. ### Clone the repository
 
    ```bash
-   https://github.com/markcrowe-com/java-ee-shiro-web-example.jsp.git
+   git clone https://github.com/markcrowe-com/java-ee-shiro-web-example.jsp.git
    ```
 
 2. ### Deploy the project to Apache Tomcat Server
