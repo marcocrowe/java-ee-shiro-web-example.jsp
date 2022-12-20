@@ -11,8 +11,8 @@
 <jsp:include page="header.jsp" />
 <div class="container">
 	<main>
-		<h1>Java EE Shiro Web example</h1>
-		<p>A simple example of a Java EE web application using Shiro for authentication and authorization.</p>
+		<h1>Java E.E. Shiro Web example</h1>
+		<p>A simple example of a Java E.E. web application using Shiro for authentication and authorization.</p>
 	</main>
 </div>
 </body>
