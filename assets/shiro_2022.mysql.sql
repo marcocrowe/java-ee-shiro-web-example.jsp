@@ -70,7 +70,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'homer@simpsons.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','Homer Simpson','1234','1crq50fq2x0ntr6w7vn83102ml5tc0zbmvrcaq10uqenfdeqk','c5160de821487c450582bdd17e0da30e2b6c9f9aa3da81955a3496ec43ea7d4a','homer.simpson'),(2,'bart@simpsons.com','d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1','Bart Simpson','pass','14z5brbqouf1914r08639vz85tpjs1hc5cx4c0zp2c1ya33ym','ba67457f9f5fe23d46d7254d56676cf24324945686bb91db9fbe9ae60d29ce23','bart.simpson'),(3,'lisa@simpsons.com','ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad','Lisa Simpson','abc','32x87y80wbdwlhpob3if9mw5fzs552ciq8xn3baeeev1twmhy','99f2cceb45992363c76f5fd3425e3ad240c668a497de0744803a13646bed2339','lisa.simpson');
+INSERT INTO `user` VALUES (1,'homer@simpsons.com','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8','Homer Simpson','password','ETps2qZYExigTV+1W8YYxA==','9d111c96e94e6c1636df7ce142beb34fa4c26739c10f45cb25e42325d74cabfb','homer.simpson'),(2,'bart@simpsons.com','d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1','Bart Simpson','pass','M43RX5wMIkKHbPhhkx5Q+A==','8574e0a01d51d7aada56f54e30a93fa7dc802783c2dc226995277a6cb943b347','bart.simpson'),(3,'lisa@simpsons.com','2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b','Lisa Simpson','secret','J/W/LFOZbI7fn9A3Wqn6Ug==','b7ec914de3d99a2b725efe24b237affbed268624c379ffcbdfc39170fd247f31','lisa.simpson');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,4 +161,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-09 10:34:57
+-- Dump completed on 2022-12-19 17:07:35
