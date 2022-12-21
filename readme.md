@@ -22,6 +22,15 @@ A simple example of a Java EE web application using Shiro for authentication and
 
    For IntelliJ IDEA users a run Configuration is included in the project to deploy to a Tomcat Server named [Tomcat 9](./.idea/runConfigurations/Tomcat_9.xml)
 
+## Features
+
+- [x] [Shiro](https://shiro.apache.org/) for authentication and authorization
+- [x] Hashed passwords
+- [x] Salted passwords
+- [ ] User forgotten password feature
+- [ ] User Password reset
+- [ ] User registration
+
 ## Tools Used
 
 - [VS Code](https://code.visualstudio.com/), [Java Extension](https://code.visualstudio.com/docs/languages/java)
