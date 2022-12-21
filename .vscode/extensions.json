@@ -5,9 +5,11 @@
 		"pthorsson.vscode-jsp",
 		"redhat.vscode-community-server-connector",
 		"davidanson.vscode-markdownlint",
-		"2gua.rainbow-brackets",
 		"sonarsource.sonarlint-vscode",
 		"tomoyukim.vscode-mermaid-editor",
-		"maptz.camelcasenavigation"
+		"maptz.camelcasenavigation",
+		"vscjava.vscode-java-pack",
+		"redhat.vscode-rsp-ui",
+		"redhat.vscode-xml"
 	]
 }
