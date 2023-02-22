@@ -10,6 +10,7 @@
 		"maptz.camelcasenavigation",
 		"vscjava.vscode-java-pack",
 		"redhat.vscode-rsp-ui",
-		"redhat.vscode-xml"
+		"redhat.vscode-xml",
+		"jebbs.plantuml"
 	]
 }

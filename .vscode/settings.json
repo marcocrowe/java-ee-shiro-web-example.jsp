@@ -8,5 +8,10 @@
 		"Servlet",
 		"servlets",
 		"shiro"
-	]
+	],
+	"plantuml.diagramsRoot": "docs/diagrams",
+	"plantuml.exportOutDir": "docs/diagrams",
+	"plantuml.exportFormat": "",
+	"plantuml.exportIncludeFolderHeirarchy": false,
+	"plantuml.exportSubFolder": false,
 }
