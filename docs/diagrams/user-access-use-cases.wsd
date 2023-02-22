@@ -1,0 +1,20 @@
+@startuml user-access
+skinparam actorStyle awesome
+left to right direction
+"Admin" as admin
+"Unauthenticated User" as guest
+"User" as user
+"Admin the application" as (applicationAdmin)
+"Use the application" as (applicationUse)
+"Forgot Password" as (forgotPassword)
+"Login" as (login)
+"Logout" as (logout)
+
+admin --> applicationAdmin
+admin --> logout
+guest --> forgotPassword
+guest --> login
+user --> applicationUse
+user --> logout
+
+@enduml
